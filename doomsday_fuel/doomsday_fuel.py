@@ -5,9 +5,8 @@ def solution(matrix):
     mat = AbsorbingMarkhovChain(matrix)
     abs_probs = mat.get_result()
 
-    if abs_probs[0] == 1 and abs_probs[-1] == 1:
-        # In the case where there is only one state return this list because we
-        # don't need to perfom th lcm part
+    if sum(matrix[0]) == 0:
+        # Check for case where s0 is absorbing - we don't need to do lcm.
         return abs_probs
 
     l = 1
